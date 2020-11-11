@@ -1,0 +1,34 @@
+<html>
+	<head>
+		<script type = "text/javascript">
+			function tableAppear()
+			{
+				var gender = "Maschio"
+				
+				// Gets the reference to body DOC object
+				bodyRef = document.getElementsByTagName("body")[0];
+				
+				// Create a table object
+				var table = document.createElement("table");
+				var tr    = document.createElement("tr");
+				var txt   = document.createTextNode(gender);
+
+				tr.appendChild(txt)
+				table.appendChild(tr)
+				bodyRef.appendChild(table);
+			}
+		</script>
+	</head>
+	<body>
+		<script>
+			// Tutta la tua merda
+			function lista()
+			{
+				if(true)
+					tableAppear();
+				// else altro
+			}
+			lista();
+		</script>
+	</body>
+</html>

@@ -1,0 +1,54 @@
+<html>
+    <meta name="viewport" content="width=device-width">
+
+    <head>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.min.js" 
+            type="text/javascript"></script>
+    </head>
+
+    <body>
+        <script>
+            var x;
+            var client = null;
+            var host = "broker.hivemq.com";
+            var port = 8000;
+
+            $(document).ready(() =>
+            {
+                let data = null;
+
+                client = new Paho.MQTT.Client(host, port, "");
+                client.connect({
+                    onSuccess: () => {
+                        client.subscribe("fera/frasi/ninja");
+                        client.onMessageArrived = (message) => {
+                            data = message.payloadString;
+                            $("#showText").html(data);
+                        };
+                    }
+                });
+
+                $("#save-btn").click(() => 
+                {
+                    if($("#inputText").val())
+                    {
+                        data = $("#inputText").val() + "<br>" + data;   
+                        $("#showText").html(data);      
+                        $("#inputText").val("");
+                        client.send("fera/frasi/ninja", data, 1, true)
+                    }
+                });
+            });
+        </script>
+        <div>
+            <div style="padding: 26px;">
+                Nuova frasi: <input style="margin-left: 6px;" type="text" id="inputText">
+            </div>
+            <button id="save-btn">Save</button>
+        </div>
+        <div>
+            <p id="showText" style="overflow-y: scroll; max-height: 400px;"></p>
+        </div>
+    </body>
+</html>

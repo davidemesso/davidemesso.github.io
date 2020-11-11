@@ -1,0 +1,21 @@
+<html>
+	<head>
+		<script type = "text/javascript">
+			function getProperties()
+			{
+				bodyRef = document.getElementsByTagName("body")[0];
+				var query = location.search.substring(1).split('&');
+				for(var i = 0; i < query.length; i++)
+				{
+					var pair = query[i].split('=');
+					var elem = document.createElement("p");
+					var txt  = document.createTextNode(pair[0] + ": " + pair[1] + "\n");
+					
+					elem.appendChild(txt);
+					bodyRef.appendChild(elem);
+				}		
+			}
+		</script>
+	</head>
+	<body onload="getProperties()"/>
+</html>
