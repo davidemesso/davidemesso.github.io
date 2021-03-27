@@ -1,0 +1,154 @@
+:root {
+    --maincolor: #2dff82;
+}
+
+* {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.nav-bar {
+    background-color: var(--maincolor);
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.nav-ul {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    padding: 0;
+}
+
+.nav-ul li{
+    list-style: none;
+    padding: 10px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all ease-in-out 300ms;
+    transform-origin: center;
+    position: relative;
+    display: flex;
+}
+
+.nav-ul li::after{
+    content: "";
+    position: absolute;
+    width: 0;
+    transform: translateX(-15%);
+    transform-origin: center;
+    transition: all ease-in-out 300ms;
+    bottom: 0;
+}
+
+.nav-ul li:focus:after,
+.nav-ul li:hover:after{
+    width: 100%;
+    border: 1px solid white;
+}
+
+.nav-ul li:hover,
+.nav-ul li a:focus {
+    color: rgb(255, 255, 255, 200);
+    font-size: 1.5rem;
+    border: none;
+}
+
+.logo {
+    --size: 64px;
+    width: var(--size);
+    height: var(--size);
+    border-radius: 50%;
+    border: .2em solid white;
+    box-sizing: border-box;
+}
+
+.intro {
+    text-align: center;
+    padding: auto;
+    margin-bottom: 2rem;
+    font-size: 1.5rem;
+}
+
+.youtube-link {
+    color: red;
+    text-decoration: underline;
+    font-size: 1.05em;
+}
+
+.parallax {
+    background-image: url("img/parallax_bg.jpg");
+    background-color: var(--maincolor);
+    background-position: center;
+    width: 100%;
+    background-attachment:fixed;
+    background-size: cover;
+    background-blend-mode: darken;
+}
+
+.parallax p{
+    font-size: 2rem;
+    text-align: center;
+    color: white;
+    padding: 4rem;
+    text-shadow: -1px 1px 0 #000,
+                  1px 1px 0 #000,
+                  1px -1px 0 #000,
+                 -1px -1px 0 #000;
+    margin-bottom: 2rem;
+}
+
+@media only screen and (min-width: 900px) {
+    .parallax p{
+        font-size: 3rem;
+        padding: 6rem;
+    }
+
+    .drawings {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 10rem;
+    }
+
+    .card {
+        flex: 1 1 40%;
+        width: 33%;
+        margin: 2rem !important;
+    }
+}
+
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 80%;
+    border-radius: 5px;
+    margin: 2rem auto;
+}
+  
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+  
+img {
+    border-radius: 5px 5px 0 0;
+    width:100%;
+    max-height: 500px;
+}
+  
+.container {
+    padding: 2px 16px;
+}
+
+.container p{
+    margin-bottom: .4rem;
+}
